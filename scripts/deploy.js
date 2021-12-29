@@ -1,5 +1,3 @@
-const { ethers } = require("ethers")
-
 async function main() {
     const [deployer] = await ethers.getSigners()
 
@@ -7,7 +5,7 @@ async function main() {
     console.log("Account balance:", (await deployer.getBalance()).toString())
 
     const Token = await ethers.getContractFactory("WavePlace")
-    const token = await Token.deploy({value: hre.ethers.utils.parseEther("100")})
+    const token = await Token.deploy({value: hre.ethers.utils.parseEther("10")})
     await token.deployed()
 
     console.log("WavePlace address:", token.address)

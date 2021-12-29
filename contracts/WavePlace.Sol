@@ -34,7 +34,7 @@ contract WavePlace {
         require(lastWaveAt[msg.sender] + 30 seconds < block.timestamp, "You gotta wait 30 seconds!!");
 
         totalWaves += 1;
-        console.log("%s waved with message: %s", msg.sender, _message); 
+        // console.log("%s waved with message: %s", msg.sender, _message); 
         waves.push(Wave(_message, msg.sender, block.timestamp));
 
         // Generate random #
@@ -42,13 +42,13 @@ contract WavePlace {
         
         //set the seed
         seed = randomNumber;
-        console.log("%s random num", randomNumber);
+        // console.log("%s random num", randomNumber);
         //give user 50% chance of winning
         if (randomNumber < 50){
             //win prize
-            console.log("%s -- won the prize!", msg.sender);
+            // console.log("%s -- won the prize!", msg.sender);
             //send money
-            uint prizeAmount = 0.1 ether;
+            uint prizeAmount = 0.5 ether;
 
             //line below is to check if there is money
             require(prizeAmount <= address(this).balance, "Contract doesn't have enough money, we poor");
@@ -70,7 +70,7 @@ contract WavePlace {
     }
 
     function getTotalWaves() view public returns (uint) {
-        console.log("We have %d total waves!", totalWaves);
+        // console.log("We have %d total waves!", totalWaves);
         return totalWaves;
     }
 }
