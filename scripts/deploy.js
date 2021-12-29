@@ -1,14 +1,13 @@
 const { ethers } = require("ethers")
-const { hexStripZeros } = require("ethers/lib/utils")
 
 async function main() {
     const [deployer] = await ethers.getSigners()
 
     console.log("Deploying contracts with the account:", deployer.address)
-    console.log("Account balance:", (await.deployer.getBalance()).toString())
+    console.log("Account balance:", (await deployer.getBalance()).toString())
 
     const Token = await ethers.getContractFactory("WavePlace")
-    const token = await Token.deploy({value: hre.ethers.utils.parseEther("0.1")})
+    const token = await Token.deploy({value: hre.ethers.utils.parseEther("100")})
     await token.deployed()
 
     console.log("WavePlace address:", token.address)

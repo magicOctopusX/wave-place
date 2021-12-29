@@ -17,15 +17,15 @@ contract WavePlace {
         uint timestamp; //timestamp when the user waved
     }
 
-    //declared a variable waves that lets us store an array of structs
-    //holds all the waves anyone ever sends to me
+    //declared a variable waves that lets us store an array of structs, of which the struct is Wave
+    //holds all the waves anyone ever sends to me (the contract)
     Wave[] waves;
 
 
     mapping(address => uint) public lastWaveAt;
 
     constructor() payable {
-        console.log("we have been constructed!, WavePortal.sol contract WavePortal");
+        console.log("we have been constructed!, WavePlace.sol contract WavePlace");
     }
 
     //this is a state changing function because it will change the variable and save it on to the blockchain
